@@ -1,34 +1,16 @@
-class Node:
-  def __init__(self, data):
-    self.data = data
-    self.next = None
+# Read an integer that denotes the length of the list which is returned as the output of the algorithm
+length_of_circular_linked_list = int(input())
+# Read space-separated integers that denote the elements of the list which is returned as the output of the algorithm
+circular_linked_list = list(map(int,input().strip().split(" ")))
 
-
-class Queue:
-  def __init__(self):
-    self.head = None
-    self.last = None
-
-  def enqueue(self, data) -> None:
-    # Write your code here
-
-  def dequeue(self) -> None:
-    # Write your code here
-
-  def status(self) -> None:
-    # Write your code here
-
-
-# Do not change the following code
-queue = Queue()
-operations = []
-for specific_operation in input().split(','):
-    operations.append(specific_operation.strip())
-input_data = input()
-data = input_data.split(',')
-for i in range(len(operations)):
-  if operations[i] == "enqueue":
-    queue.enqueue(int(data[i]))
-  elif operations[i] == "dequeue":
-    queue.dequeue()
-queue.status()
+# 1 2 3 4 1 2 3 4 5 6
+new_list = []
+key = 0
+while len(new_list) < length_of_circular_linked_list and key < len(circular_linked_list):
+    element = circular_linked_list[key]
+    if element not in new_list:
+        new_list.append(element)
+    key += 1
+print(len(new_list))
+for i in new_list:
+    print(i , end = " ")
